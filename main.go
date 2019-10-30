@@ -10,7 +10,7 @@ import (
 func main() {
 	var discountDays int
 
-	fmt.Print("PTOs and holiday days: ")
+	fmt.Print("Holidays days: ")
 	if _, err := fmt.Scan(&discountDays); err != nil {
 		log.Fatal(err)
 	}
