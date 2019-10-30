@@ -23,6 +23,7 @@ func main() {
 	}
 
 	hoursUntilToday := wm.WorkingHoursUntilToday() - (discountDays * 8)
+	monthHours := wm.WorkingHours() - (discountDays * 8)
 	fmt.Printf("Working hours until today: %v\n", hoursUntilToday)
-	fmt.Printf("Working hours until month end:  %v\n", wm.WorkingHours())
+	fmt.Printf("Working hours until month end:  %v\n", monthHours)
 }
