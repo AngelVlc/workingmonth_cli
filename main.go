@@ -10,7 +10,7 @@ import (
 func main() {
 	var discountDays int
 
-	fmt.Print("Holidays days: ")
+	fmt.Print("Holidays: ")
 	if _, err := fmt.Scan(&discountDays); err != nil {
 		log.Fatal(err)
 	}
@@ -26,4 +26,5 @@ func main() {
 	monthHours := wm.WorkingHours() - (discountDays * 8)
 	fmt.Printf("Working hours until today: %v\n", hoursUntilToday)
 	fmt.Printf("Working hours until month end:  %v\n", monthHours)
+	fmt.Printf("(Bamboo adds future PTO days)\n")
 }
