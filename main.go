@@ -9,12 +9,19 @@ import (
 )
 
 func main() {
-	var discountDays float32
-
-	fmt.Print("Holidays: ")
-	if _, err := fmt.Scan(&discountDays); err != nil {
+	var previousHolidays float32
+	fmt.Println("Holidays before today:")
+	if _, err := fmt.Scan(&previousHolidays); err != nil {
 		log.Fatal(err)
 	}
+
+	var futureHolidays float32
+	fmt.Println("Future holidays:")
+	if _, err := fmt.Scan(&futureHolidays); err != nil {
+		log.Fatal(err)
+	}
+	
+	discountDays := previousHolidays + futureHolidays
 
 	now := time.Now()
 
@@ -23,9 +30,8 @@ func main() {
 		Month: int(now.Month()),
 	}
 
-	hoursUntilToday := float32(wm.WorkingHoursUntilToday()) - (discountDays * 8)
-	monthHours := float32(wm.WorkingHours()) - (discountDays * 8)
+	hoursUntilToday := float32(wm.WorkingHoursUntilToday()) + (discountDays * 8)
+	monthHours := float32(wm.WorkingHours()) // - (discountDays * 8)
 	fmt.Printf("Working hours until today: %v\n", hoursUntilToday)
 	fmt.Printf("Working hours until month end:  %v\n", monthHours)
-	fmt.Printf("IMPORTANT: Bamboo adds future PTO days\n")
 }
