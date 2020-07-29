@@ -9,19 +9,13 @@ import (
 )
 
 func main() {
-	var previousHolidays float32
-	fmt.Println("Holidays before today:")
-	if _, err := fmt.Scan(&previousHolidays); err != nil {
-		log.Fatal(err)
-	}
-
 	var futureHolidays float32
 	fmt.Println("Future holidays:")
 	if _, err := fmt.Scan(&futureHolidays); err != nil {
 		log.Fatal(err)
 	}
 	
-	discountDays := previousHolidays + futureHolidays
+	discountDays := futureHolidays
 
 	now := time.Now()
 
